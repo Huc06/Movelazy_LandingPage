@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
-const TabButton = ({ tab, isActive, onClick }) => (
+const TabButton: React.FC<{ tab: string; isActive: boolean; onClick: () => void }> = ({ tab, isActive, onClick }) => (
   <motion.button
     className={`pb-2 text-lg font-medium transition-all ${isActive ? "text-yellow-400 border-b-2 border-yellow-400" : "text-gray-400"} hover:text-white`}
     onClick={onClick}
@@ -18,7 +19,7 @@ const Homepage = () => {
   const [activeTab, setActiveTab] = useState("Code Editor");
   const [imageSrc, setImageSrc] = useState("/path/to/your/image.png");
 
-  const handleTabChange = (tab) => {
+  const handleTabChange = (tab: string) => {
     setActiveTab(tab);
     if (tab === "Compile") {
       setImageSrc("/Compile.png");
@@ -96,7 +97,14 @@ const Homepage = () => {
         </div>
 
         <div className="w-full md:w-1/2 bg-gray-900 p-4 rounded-lg flex items-center justify-center">
-          <img src={imageSrc} alt={`${activeTab} Preview`} className="w-full h-auto rounded-lg" />
+          <Image 
+            src={imageSrc} 
+            alt={`${activeTab} Preview`} 
+            className="w-full h-auto rounded-lg" 
+            layout="responsive" 
+            width={500}
+            height={300}
+          />
         </div>
       </div>
     </main>
