@@ -56,7 +56,7 @@ export default function Homepage() {
                 This section provides information about the compile process, including how to set up your environment and run the necessary commands.
               </p>
             </div>
-            <div className="relative">
+            <div className="relative rounded-lg border-2 border-white">
               <Image
                 src="/Compile.png"
                 width={800}
@@ -78,7 +78,7 @@ export default function Homepage() {
                 This section covers the testing phase, including how to run tests and validate your code.
               </p>
             </div>
-            <div className="relative">
+            <div className="relative rounded-lg border-2 border-white">
               <Image
                 src="/Tester.png"
                 width={800}
@@ -100,7 +100,7 @@ export default function Homepage() {
                 This section explains the deployment process, including how to deploy your application to production.
               </p>
             </div>
-            <div className="relative">
+            <div className="relative rounded-lg border-2 border-white">
               <Image
                 src="/Deploy.png"
                 width={800}
