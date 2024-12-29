@@ -13,13 +13,13 @@ export default function Footer() {
           <Link href="#" className="text-gray-400 hover:text-white transition">
             <Facebook className="w-5 h-5" />
           </Link>
-          <Link href="#" className="text-gray-400 hover:text-white transition">
+          <Link href="https://www.youtube.com/@lazymove_vietnam" className="text-gray-400 hover:text-white transition">
             <Youtube className="w-5 h-5" />
           </Link>
           <Link href="#" className="text-gray-400 hover:text-white transition">
             <Instagram className="w-5 h-5" />
           </Link>
-          <Link href="#" className="text-gray-400 hover:text-white transition">
+          <Link href="https://x.com/Movelazy0001" className="text-gray-400 hover:text-white transition" target="_blank" rel="noopener noreferrer">
             <Twitter className="w-5 h-5" />
           </Link>
         </div>
