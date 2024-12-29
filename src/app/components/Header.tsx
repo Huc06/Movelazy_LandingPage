@@ -9,7 +9,7 @@ export default function Header() {
       <nav className="flex gap-6">
         <Link href="/tutorial" className="hover:text-purple-400 transition">Tutorial</Link>
         <Link href="/blog" className="hover:text-purple-400 transition">Blog</Link>
-        <Link href="/github" className="hover:text-purple-400 transition">Github</Link>
+        <Link href="https://github.com/Weminal-labs/Movelazy" className="hover:text-purple-400 transition" target="_blank" rel="noopener noreferrer">Github</Link>
       </nav>
     </header>
   );

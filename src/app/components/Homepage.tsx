@@ -16,7 +16,7 @@ export default function Homepage() {
           An extension for Visual Studio Code allow use interface to execute Movement
           command without set up environment in local.
         </p>
-        <Button variant="secondary" className="bg-purple-900/50 hover:bg-purple-900/70 text-white">
+        <Button variant="secondary" className="bg-purple-900/50 hover:bg-purple-900 text-white">
           Start building
         </Button>
       </div>
@@ -25,21 +25,21 @@ export default function Homepage() {
       <div className="flex gap-6 mb-8">
         <Button 
           variant="ghost" 
-          className={activeTab === "compile" ? "text-purple-400 bg-purple-500/10" : "text-gray-400 hover:text-purple-400"}
+          className={activeTab === "compile" ? "text-gray-900 bg-white" : "text-gray-400 hover:text-white"}
           onClick={() => setActiveTab("compile")}
         >
           Compile
         </Button>
         <Button 
           variant="ghost" 
-          className={activeTab === "tester" ? "text-purple-400 bg-purple-500/10" : "text-gray-400 hover:text-purple-400"}
+          className={activeTab === "tester" ? "text-gray-900 bg-white" : "text-gray-400 hover:text-white"}
           onClick={() => setActiveTab("tester")}
         >
           Tester
         </Button>
         <Button 
           variant="ghost" 
-          className={activeTab === "deploy" ? "text-purple-400 bg-purple-500/10" : "text-gray-400 hover:text-purple-400"}
+          className={activeTab === "deploy" ? "text-gray-900 bg-white" : "text-gray-400 hover:text-white"}
           onClick={() => setActiveTab("deploy")}
         >
           Deploy
@@ -48,7 +48,7 @@ export default function Homepage() {
 
       {/* Content based on active tab */}
       {activeTab === "compile" && (
-        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-purple-900/20 to-blue-900/20 p-8 border border-purple-500/20">
+        <div className="relative rounded-2xl overflow-hidden bg-black p-8 border-4 border-white glow-border">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h2 className="text-2xl font-bold mb-4">Compile</h2>
@@ -70,7 +70,7 @@ export default function Homepage() {
       )}
 
       {activeTab === "tester" && (
-        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-purple-900/20 to-blue-900/20 p-8 border border-purple-500/20 mt-8">
+        <div className="relative rounded-2xl overflow-hidden bg-black p-8 border-4 border-white glow-border">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h2 className="text-2xl font-bold mb-4">Tester</h2>
@@ -92,7 +92,7 @@ export default function Homepage() {
       )}
 
       {activeTab === "deploy" && (
-        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-purple-900/20 to-blue-900/20 p-8 border border-purple-500/20 mt-8">
+        <div className="relative rounded-2xl overflow-hidden bg-black p-8 border-4 border-white glow-border">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h2 className="text-2xl font-bold mb-4">Deploy</h2>
