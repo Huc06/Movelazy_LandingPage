@@ -1,44 +1,40 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const TutorialPage = () => {
   return (
-    <main className="flex flex-col items-center p-6 bg-gray-900 min-h-screen">
+    <main className="flex flex-col items-center p-6 bg-gradient-to-r from-purple-500 to-blue-500 min-h-screen">
       <motion.h1 
-        className="text-5xl font-bold text-center text-white glow" // Thêm lớp glow
-        whileHover={{ scale: 1.05, rotateY: 10, rotateX: 10 }}
+        className="text-6xl font-extrabold text-center text-yellow-300 glow" // Thêm lớp glow
+        whileHover={{ scale: 1.1, rotateY: 15, rotateX: 15 }}
         transition={{ duration: 0.3 }}
       >
-        Hướng dẫn sử dụng
+        Vui lòng quay lại sau, chúng tôi đang hoàn thiện tài liệu
       </motion.h1>
       <motion.p 
-        className="text-lg text-gray-300 mb-8 text-center mt-4"
-        whileHover={{ scale: 1.05 }}
+        className="text-xl text-white mb-8 text-center mt-4"
+        whileHover={{ scale: 1.1, rotate: 5 }}
         transition={{ duration: 0.3 }}
       >
-        Chào mừng bạn đến với bộ công cụ phát triển Move. Dưới đây là một số hướng dẫn cơ bản để bắt đầu.
+        Chúng tôi đang hoàn thiện tài liệu. Cảm ơn bạn đã kiên nhẫn!
       </motion.p>
-
-      <div className="mt-8 w-full max-w-2xl bg-gray-800 p-4 rounded-lg text-white">
-        <h2 className="text-2xl font-bold">Bước 1: Cài đặt</h2>
-        <p className="mt-2">Để bắt đầu, bạn cần cài đặt các gói cần thiết:</p>
-        <pre className="bg-gray-700 p-2 rounded">
-          <code>npm install move-sdk</code>
-        </pre>
-
-        <h2 className="text-2xl font-bold mt-4">Bước 2: Tạo dự án mới</h2>
-        <p className="mt-2">Sử dụng lệnh sau để tạo một dự án mới:</p>
-        <pre className="bg-gray-700 p-2 rounded">
-          <code>npx create-move-app my-project</code>
-        </pre>
-
-        <h2 className="text-2xl font-bold mt-4">Bước 3: Bắt đầu phát triển</h2>
-        <p className="mt-2">Chạy lệnh sau để khởi động máy chủ phát triển:</p>
-        <pre className="bg-gray-700 p-2 rounded">
-          <code>npm start</code>
-        </pre>
-      </div>
+      <motion.div 
+        className="w-32 h-32 mb-4" // Hình con hổ đánh nhau
+        whileHover={{ scale: 1.2 }}
+        transition={{ duration: 0.3 }}
+        animate={{ rotate: [0, 15, -15, 0], y: [0, -15, 0] }} // Hiệu ứng động cho con hổ
+      >
+        <motion.img 
+          src="/tiger-fighting.png" 
+          alt="Hổ đánh nhau" 
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+      <Link href="/" className="mt-4 inline-block bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition">
+        Quay về trang chính
+      </Link>
     </main>
   );
 };
