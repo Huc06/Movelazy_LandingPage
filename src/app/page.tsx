@@ -1,15 +1,13 @@
-import Homepage from './components/Homepage';
-import Footer from './components/Footer';
 import Header from './components/Header';
+import Footer from './components/Footer';
+import Homepage from './components/Homepage';
 
-const Home = () => {
+export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen bg-black text-white">
       <Header />
       <Homepage />
       <Footer />
     </div>
   );
-};
-
-export default Home;
+}

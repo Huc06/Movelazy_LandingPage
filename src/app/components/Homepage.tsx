@@ -1,114 +1,118 @@
-"use client";
-
+"use client"
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "./ui/button";
 import { useState } from "react";
-import { motion } from 'framer-motion';
-import Image from 'next/image';
 
-const TabButton: React.FC<{ tab: string; isActive: boolean; onClick: () => void }> = ({ tab, isActive, onClick }) => (
-  <motion.button
-    className={`pb-2 text-lg font-medium transition-all ${isActive ? "text-yellow-400 border-b-2 border-yellow-400" : "text-gray-400"} hover:text-white`}
-    onClick={onClick}
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.9 }}
-  >
-    {tab}
-  </motion.button>
-);
-
-const Homepage = () => {
-  const [activeTab, setActiveTab] = useState("Code Editor");
-  const [imageSrc, setImageSrc] = useState("/path/to/your/image.png");
-
-  const handleTabChange = (tab: string) => {
-    setActiveTab(tab);
-    if (tab === "Compile") {
-      setImageSrc("/Compile.png");
-    } else if (tab === "Tester") {
-      setImageSrc("/Tester.png");
-    } else if (tab === "Deploy") {
-      setImageSrc("/Deploy.png");
-    }
-  };
+export default function Homepage() {
+  const [activeTab, setActiveTab] = useState("compile");
 
   return (
-    <main className="flex flex-col items-center p-6 bg-slate-950">
+    <main className="container mx-auto px-4 py-12">
       {/* Hero Section */}
-      <section className="flex flex-col items-center mt-20 button-3d">
-        <motion.h1 
-          className="text-5xl font-bold text-center text-white"
-          whileHover={{ scale: 1.05, rotateY: 10, rotateX: 10 }}
-          transition={{ duration: 0.3 }}
-        >
-          The Journey of Movelazy
-        </motion.h1>
-        <motion.p 
-          className="text-lg text-gray-300 mb-8 text-center"
-          whileHover={{ scale: 1.05, rotateY: 10, rotateX: 10 }}
-          transition={{ duration: 0.3 }}
-        >
-          An extension for Visual Studio Code allow use interface to execute Movement command without set up environment in local. 
-        </motion.p>
-        <motion.button 
-          className="bg-black-600 text-white py-2 px-6 rounded shadow-lg hover:bg-pink-700 hover:shadow-xl transition-all transform hover:scale-105"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-        >
+      <div className="text-center mb-16 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-transparent rounded-full blur-3xl -z-10"></div>
+        <h1 className="text-5xl font-bold mb-6">The journey of Molazy</h1>
+        <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+          An extension for Visual Studio Code allow use interface to execute Movement
+          command without set up environment in local.
+        </p>
+        <Button variant="secondary" className="bg-purple-900/50 hover:bg-purple-900/70 text-white">
           Start building
-        </motion.button>
-      </section>
-
-      <div className="tabs flex space-x-4 mt-6 tab-3d">
-        {["Compile", "Tester", "Deploy"].map((tab) => (
-          <TabButton key={tab} tab={tab} isActive={activeTab === tab} onClick={() => handleTabChange(tab)} />
-        ))}
+        </Button>
       </div>
 
-      <div className="mt-8 w-full flex">
-        <div className="w-1/2 bg-gray-800 p-4 rounded-lg text-white">
-          {activeTab === "Compile" && (
-            <>
-              <h2 className="text-2xl font-bold">Compile</h2>
-              {/* <p className="mt-4">Tailored to the Sui Move language with features like:</p> */}
-              <ul className="mt-2 list-disc list-inside">
-                {/* <li>Built-in compiling</li>
-                <li>Syntax highlighting for the Sui Move language</li>
-                <li>Fully integrated with Move testing framework</li> */}
-              </ul>
-            </>
-          )}
-
-          {activeTab === "Tester" && (
-            <div>
-              <h2 className="text-2xl font-bold">Tester</h2>
-              {/* <p className="mt-4">Manage your code packages effortlessly.</p> */}
-            </div>
-          )}
-
-          {activeTab === "Deploy" && (
-            <div>
-              <h2 className="text-2xl font-bold">Deploy</h2>
-              {/* <p className="mt-4">Access all on-chain objects:</p>
-              <ul className="mt-2 list-disc list-inside">
-                <li>View attributes of on-chain objects</li>
-                <li>Look at object modification history in transactions</li>
-              </ul> */}
-            </div>
-          )}
-        </div>
-
-        <div className="w-full md:w-1/2 bg-gray-900 p-4 rounded-lg flex items-center justify-center">
-          <Image 
-            src={imageSrc} 
-            alt={`${activeTab} Preview`} 
-            className="w-full h-auto rounded-lg" 
-            layout="responsive" 
-            width={500}
-            height={300}
-          />
-        </div>
+      {/* Navigation Tabs */}
+      <div className="flex gap-6 mb-8">
+        <Button 
+          variant="ghost" 
+          className={activeTab === "compile" ? "text-purple-400 bg-purple-500/10" : "text-gray-400 hover:text-purple-400"}
+          onClick={() => setActiveTab("compile")}
+        >
+          Compile
+        </Button>
+        <Button 
+          variant="ghost" 
+          className={activeTab === "tester" ? "text-purple-400 bg-purple-500/10" : "text-gray-400 hover:text-purple-400"}
+          onClick={() => setActiveTab("tester")}
+        >
+          Tester
+        </Button>
+        <Button 
+          variant="ghost" 
+          className={activeTab === "deploy" ? "text-purple-400 bg-purple-500/10" : "text-gray-400 hover:text-purple-400"}
+          onClick={() => setActiveTab("deploy")}
+        >
+          Deploy
+        </Button>
       </div>
+
+      {/* Content based on active tab */}
+      {activeTab === "compile" && (
+        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-purple-900/20 to-blue-900/20 p-8 border border-purple-500/20">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Compile</h2>
+              <p className="text-gray-400">
+                This section provides information about the compile process, including how to set up your environment and run the necessary commands.
+              </p>
+            </div>
+            <div className="relative">
+              <Image
+                src="/Compile.png"
+                width={800}
+                height={600}
+                alt="Compile Process"
+                className="rounded-lg shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {activeTab === "tester" && (
+        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-purple-900/20 to-blue-900/20 p-8 border border-purple-500/20 mt-8">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Tester</h2>
+              <p className="text-gray-400">
+                This section covers the testing phase, including how to run tests and validate your code.
+              </p>
+            </div>
+            <div className="relative">
+              <Image
+                src="/Tester.png"
+                width={800}
+                height={600}
+                alt="Testing Process"
+                className="rounded-lg shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {activeTab === "deploy" && (
+        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-purple-900/20 to-blue-900/20 p-8 border border-purple-500/20 mt-8">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Deploy</h2>
+              <p className="text-gray-400">
+                This section explains the deployment process, including how to deploy your application to production.
+              </p>
+            </div>
+            <div className="relative">
+              <Image
+                src="/Deploy.png"
+                width={800}
+                height={600}
+                alt="Deployment Process"
+                className="rounded-lg shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
-};
-
-export default Homepage;
+}

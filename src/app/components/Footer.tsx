@@ -1,13 +1,29 @@
-const Footer = () => {
-    return (
-      <footer className="bg-slate-950 bg-pattern text-white p-4 text-center">
-        <p>&copy; {new Date().getFullYear()} Movelazy. Tất cả quyền được bảo lưu.</p>
-        <div className="space-x-4">
-          <a href="https://twitter.com/Movelazy" className="hover:text-gray-300">Twitter</a>
-          <a href="https://github.com/Weminal-labs/movelazy" className="hover:text-gray-300">GitHub</a>
+import Link from 'next/link'
+import { Facebook, Youtube, Instagram, Twitter } from 'lucide-react'
+
+export default function Footer() {
+  return (
+    <footer className="mt-auto py-8 px-6">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <Link href="/" className="text-xl font-semibold">
+          Movelazy
+        </Link>
+        <p className="text-gray-400 text-sm">Movelazy all rights services</p>
+        <div className="flex gap-4">
+          <Link href="#" className="text-gray-400 hover:text-white transition">
+            <Facebook className="w-5 h-5" />
+          </Link>
+          <Link href="#" className="text-gray-400 hover:text-white transition">
+            <Youtube className="w-5 h-5" />
+          </Link>
+          <Link href="#" className="text-gray-400 hover:text-white transition">
+            <Instagram className="w-5 h-5" />
+          </Link>
+          <Link href="#" className="text-gray-400 hover:text-white transition">
+            <Twitter className="w-5 h-5" />
+          </Link>
         </div>
-      </footer>
-    );
-  };
-  
-  export default Footer;
+      </div>
+    </footer>
+  )
+}
